@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./styles/App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing";
 
 function App() {

@@ -5,3 +5,7 @@ export const GET_USER_FAIL = "GET_USER_FAIL";
 export const GET_JOBS = "GET_JOBS";
 export const GET_JOBS_SUCCESS = "GET_JOBS_SUCCESS";
 export const GET_JOBS_FAIL = "GET_JOBS_FAIL";
+
+export const GET_SINGLE_JOBS = "GET_SINGLE_JOBS";
+export const GET_SINGLE_JOBS_SUCCESS = "GET_SINGLE_JOBS_SUCCESS";
+export const GET_SINGLE_JOBS_FAIL = "GET_SINGLE_JOBS_FAIL";

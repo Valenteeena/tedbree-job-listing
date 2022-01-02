@@ -1,10 +1,19 @@
 import React from "react";
 import { GoLocation } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { getSingleJobs } from "../../redux/Jobs/action";
 import styles from "../../styles/LandingStyles.module.css";
 
 const SingleJob = ({ job }) => {
+  const dispatch = useDispatch();
+
   return (
-    <section className={styles.SingleJobDiv} key={job.id}>
+    <section
+      className={styles.SingleJobDiv}
+      key={job.id}
+      onClick={() => {
+        dispatch(getSingleJobs(job.id));
+      }}>
       <div
         style={{
           display: "flex",

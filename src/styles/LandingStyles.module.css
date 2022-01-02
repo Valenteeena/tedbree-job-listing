@@ -93,3 +93,5 @@
 .SingleJobDiv:hover button {
   @apply bg-white  text-[#ea5566];
 }
+.Footer {
+}

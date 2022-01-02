@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Content from "../Components/Landing/Content";
 import Header from "../Components/Shared/Header";
 import { getJobs } from "../redux/Jobs/action";
-import { HompageConatainer } from "../styles/LandingPage.styles";
+import styles from "../styles/LandingStyles.module.css";
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -13,10 +13,10 @@ const Landing = () => {
   }, [dispatch]);
 
   return (
-    <HompageConatainer>
+    <main className={styles.HompageConatainer}>
       <Header />
       <Content />
-    </HompageConatainer>
+    </main>
   );
 };
 

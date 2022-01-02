@@ -1,10 +1,10 @@
 import React from "react";
 import { GoLocation } from "react-icons/go";
-import { SingleJobDiv } from "../../styles/LandingPage.styles";
+import styles from "../../styles/LandingStyles.module.css";
 
 const SingleJob = ({ job }) => {
   return (
-    <SingleJobDiv key={job.id}>
+    <section className={styles.SingleJobDiv} key={job.id}>
       <div
         style={{
           display: "flex",
@@ -24,7 +24,7 @@ const SingleJob = ({ job }) => {
       </h2>
       <p>{job.description}</p>
       <button>See More</button>
-    </SingleJobDiv>
+    </section>
   );
 };
 

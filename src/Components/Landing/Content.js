@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { ContentStyle } from "../../styles/LandingPage.styles";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import SingleJob from "./SingleJob";
+import styles from "../../styles/LandingStyles.module.css";
 
 const Content = () => {
   const jobReducer = useSelector((state) => state.jobReducer);
@@ -17,8 +17,8 @@ const Content = () => {
   };
 
   return (
-    <ContentStyle>
-      <div className="topContent">
+    <section className={styles.ContentStyle}>
+      <div className={styles.topContent}>
         {jobs && (
           <h2>Showing {jobs.length !== 0 ? jobs.meta.total : 0} results</h2>
         )}
@@ -36,16 +36,20 @@ const Content = () => {
         </h3>
       </div>
       {jobs && jobs.data.length !== 0 && (
-        <div className="jobContent">
-          <div className="jobList">
+        <div className={styles.jobContent}>
+          <div className={styles.jobList}>
             {jobs.data.map((jb) => (
               <SingleJob job={jb} />
             ))}
           </div>
-          <div className="jobDesc"></div>
+          <div className={styles.jobDesc}>
+            <h1 className="text-3xl font-bold underline text-red-600">
+              Hello world!
+            </h1>
+          </div>
         </div>
       )}
-    </ContentStyle>
+    </section>
   );
 };
 

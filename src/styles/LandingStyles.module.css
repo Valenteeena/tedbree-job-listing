@@ -1,0 +1,95 @@
+.HeaderContainer {
+  background-position-x: 101%;
+  background-position-y: 90%;
+  @apply max-h-80 bg-no-repeat bg-[url('../../public/headerbg.png')] bg-[#0f4a7b] py-8 px-16;
+}
+
+.HeaderContainer h1 {
+  @apply p-12 my-6 tracking-widest text-white text-[40px];
+}
+
+.topHeader {
+  @apply flex justify-between items-center;
+}
+.topHeader nav {
+  @apply flex justify-between items-center;
+  width: 35%;
+}
+.topHeader nav a {
+  @apply text-lg no-underline text-[#ffffff99];
+}
+.topHeader nav a:hover {
+  @apply text-white font-black;
+}
+.active {
+  @apply text-[#ffffff] font-black;
+}
+.topHeader nav button {
+  @apply text-[#0f4a7b] text-base py-2 px-4 rounded-md bg-[#ffeded] font-black;
+}
+.search {
+  box-shadow: 0px 4px 17px rgba(15, 74, 123, 0.15);
+  @apply flex justify-evenly w-5/6 mx-auto rounded-lg bg-white p-4;
+}
+.search div {
+  @apply w-[45%] flex items-center;
+}
+.search div input {
+  @apply w-[95%] text-base p-3;
+}
+.search div input:focus {
+  @apply outline-none;
+}
+.search button {
+  @apply text-white text-base py-2 px-5 rounded-md bg-[#ea5566] font-black;
+}
+.ContentStyle {
+  @apply py-20 px-20 text-xs;
+}
+.topContent {
+  @apply flex w-[47%] text-[#3e3e40] justify-between items-center;
+}
+.topContent h2 {
+  @apply text-base;
+}
+.topContent h3 {
+  @apply text-[#3e3e4080];
+}
+.jobContent {
+  @apply flex justify-between text-black mt-4;
+}
+.jobList {
+  @apply w-[48%];
+}
+.jobDesc {
+  @apply w-[48%] my-4 p-6 pb-12 rounded-lg;
+  box-shadow: 0px 4px 17px rgba(98, 190, 203, 0.15);
+  border-radius: 10px;
+}
+.SingleJobDiv {
+  box-shadow: 0px 4px 17px rgba(98, 190, 203, 0.15);
+  @apply w-full my-4 rounded-md p-6 pb-12;
+}
+.SingleJobDiv h1 {
+  @apply text-xl text-[#0f4a7b] mb-3 font-bold;
+}
+.SingleJobDiv h2 {
+  @apply text-lg;
+}
+.SingleJobDiv p {
+  @apply text-sm  py-2;
+}
+.SingleJobDiv button {
+  @apply float-right bg-[#ea5566] rounded-md py-2 px-4 text-white;
+}
+
+.SingleJobDiv:hover {
+  @apply text-white bg-[#0f4a7b] cursor-pointer;
+}
+.SingleJobDiv:hover h1 {
+  @apply text-white;
+}
+
+.SingleJobDiv:hover button {
+  @apply bg-white  text-[#ea5566];
+}

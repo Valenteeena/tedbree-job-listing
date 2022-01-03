@@ -1,7 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("http://fonts.cdnfonts.com/css/gilroy-bold");
+
+/* @import url("http://fonts.cdnfonts.com/css/gilroy-bold"); */
+@font-face {
+  font-family: "Gilroy-Regular";
+  /* font-style: normal;
+  font-weight: normal; */
+  src: url("./assets/Gilroy-Regular.woff");
+}
 
 * {
   font-family: "Gilroy-Regular", sans-serif;

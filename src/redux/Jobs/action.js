@@ -76,7 +76,7 @@ export const jobApply = (jobId, applyData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${base}/jobs/${jobId}/apply`,
+      `${base}jobs/${jobId}/apply`,
       applyData,
       conf
     );
@@ -157,5 +157,40 @@ export const getUserJobs = () => async (dispatch) => {
       : "Something Went Wrong";
 
     dispatch({ type: types.GET_USER_JOBS_FAIL, payload: message });
+  }
+};
+
+export const createJob = (jobData) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+
+  try {
+    dispatch({ type: types.CREATE_JOB });
+
+    const conf = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+    };
+
+    const { data } = await axios.post(`${base}my/jobs`, jobData, conf);
+
+    if (data.status === "success") {
+      dispatch({ type: types.CREATE_JOB_SUCCESS, payload: data.data });
+
+      toast.success("Application sucessfull!", {
+        position: "top-right",
+      });
+    }
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : "Application failed";
+    dispatch({ type: types.CREATE_JOB_FAIL, payload: message });
+
+    toast.error(message, {
+      position: "top-right",
+    });
   }
 };

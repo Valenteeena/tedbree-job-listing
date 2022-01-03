@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import AdminHeader from "../Components/Admin/AdminHeader";
+import JobCreationForm from "../Components/Admin/JobCreationForm";
 import { getUser } from "../redux/Authentication/action";
 import { getUserJobs } from "../redux/Jobs/action";
 import styles from "../styles/Admin.module.css";
@@ -11,6 +12,11 @@ const Admin = () => {
   const { detail } = userReducer;
   const jobReducer = useSelector((state) => state.jobReducer);
   const { user_jobs } = jobReducer;
+  const [show, setShow] = useState(false);
+
+  const closeFrm = (e) => {
+    setShow(!show);
+  };
 
   const dispatch = useDispatch();
 
@@ -35,7 +41,12 @@ const Admin = () => {
               />
               <button>Search</button>
             </div>
-            <button>+ New Job</button>
+            <button
+              onClick={(e) => {
+                closeFrm();
+              }}>
+              + New Job
+            </button>
           </aside>
         </div>
         <table className={styles.dataTable}>
@@ -72,6 +83,7 @@ const Admin = () => {
           )}
         </table>
       </section>
+      <JobCreationForm show={show} closeFrm={closeFrm} />
     </main>
   );
 };

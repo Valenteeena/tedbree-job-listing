@@ -20,6 +20,10 @@ export const JOB_APPLY = "JOB_APPLY";
 export const JOB_APPLY_SUCCESS = "JOB_APPLY_SUCCESS";
 export const JOB_APPLY_FAIL = "JOB_APPLY_FAIL";
 
+export const CREATE_JOB = "CREATE_JOB";
+export const CREATE_JOB_SUCCESS = "CREATE_JOB_SUCCESS";
+export const CREATE_JOB_FAIL = "CREATE_JOB_FAIL";
+
 export const LOGOUT = "LOGOUT";
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";

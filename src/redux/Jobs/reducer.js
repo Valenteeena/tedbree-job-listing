@@ -7,7 +7,13 @@ export const jobReducer = (state = { loading: false }, action) => {
     case types.GET_JOBS_SUCCESS:
       return { loading: false, jobs: action.payload };
     case types.GET_JOBS_FAIL:
-      return { loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
+    case types.CREATE_JOB:
+      return { ...state, loading: true };
+    case types.CREATE_JOB_SUCCESS:
+      return { ...state, loading: false, newJobs: action.payload };
+    case types.CREATE_JOB_FAIL:
+      return { ...state, loading: false, error: action.payload };
     case types.GET_SINGLE_JOBS:
       return { ...state, loading: true };
     case types.GET_SINGLE_JOBS_SUCCESS:

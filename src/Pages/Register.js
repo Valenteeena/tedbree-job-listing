@@ -24,7 +24,7 @@ function Register() {
   };
   useEffect(() => {
     if (regDetail) {
-      navigate("/");
+      navigate("/login");
     }
   }, [regDetail, navigate]);
 

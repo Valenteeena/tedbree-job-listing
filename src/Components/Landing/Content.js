@@ -6,12 +6,19 @@ import Select from "@mui/material/Select";
 import SingleJob from "./SingleJob";
 import styles from "../../styles/LandingStyles.module.css";
 import { GoLocation } from "react-icons/go";
+import ApplyModal from "./ApplyModal";
 
 const Content = () => {
   const jobReducer = useSelector((state) => state.jobReducer);
   const { jobs, current_job, currentId } = jobReducer;
 
   const [sortBy, setSortBy] = useState("latest");
+  const [show, setShow] = useState(true);
+
+  const closeFrm = (e) => {
+    setShow(!show);
+  };
+
   const handleChange = (event) => {
     setSortBy(event.target.value);
   };
@@ -55,7 +62,12 @@ const Content = () => {
                     />
                     {current_job.location}
                   </h2>{" "}
-                  <button>Apply Via Find Job</button>
+                  <button
+                    onClick={(e) => {
+                      closeFrm();
+                    }}>
+                    Apply Via Find Job
+                  </button>
                 </div>
                 <article>
                   <p>{current_job.description}</p>
@@ -81,6 +93,7 @@ const Content = () => {
           </div>
         </div>
       )}
+      <ApplyModal job={current_job} show={show} closeFrm={closeFrm} />
     </section>
   );
 };

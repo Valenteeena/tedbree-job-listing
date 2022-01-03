@@ -123,5 +123,47 @@
 .jobDesc button {
   @apply bg-[#0F4A7B] text-white py-3 px-8 rounded-xl text-lg tracking-widest;
 }
+
+.ApplyModal {
+  @apply fixed top-0 py-6 bottom-0 right-0 left-0 overflow-scroll;
+  background-color: rgba(1, 25, 44, 0.8);
+}
+.ApplyModal div {
+  @apply w-1/2 mx-auto bg-[#F9FBFD] p-10 rounded-md;
+}
+.ApplyModal div button {
+  @apply float-right;
+}
+.ApplyModal div h1 {
+  @apply text-2xl text-[#0f4a7b] mb-3 font-bold tracking-widest;
+}
+.ApplyModal div h2 {
+  @apply text-xl mb-4;
+}
+.ApplyModal form {
+  @apply mt-8 mb-16;
+}
+.ApplyModal form aside {
+  @apply mb-8 w-full;
+}
+.ApplyModal form aside label {
+  @apply text-[#0f4a7b] text-lg font-bold;
+}
+.ApplyModal form aside input[type="text"],
+.ApplyModal form aside input[type="email"] {
+  @apply w-full border-[1px] border-[#0f4a7b] text-lg p-4 rounded-lg mt-2;
+}
+.ApplyModal form button {
+  @apply w-full bg-[#0f4a7b] py-4 float-none text-base font-bold text-white;
+}
+.upload {
+  @apply bg-white text-center w-full flex flex-col items-center justify-center py-12 mb-8 font-bold border-[1px] border-[#0f4a7b] text-[#0f4a7b] text-base p-4 rounded-lg;
+}
+.upload input[type="file"] {
+  @apply hidden;
+}
+.upload label {
+  @apply inline-block bg-[#0f4a7b] cursor-pointer py-4 w-48 rounded-md mt-2 float-none text-base font-bold text-white;
+}
 .Footer {
 }

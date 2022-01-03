@@ -21,10 +21,10 @@ export const login = (email, password) => async (dispatch, getState) => {
     );
 
     //   if (data.status === "success") {
-    dispatch({ type: types.LOGIN_SUCCESS, payload: data.data });
+    dispatch({ type: types.LOGIN_SUCCESS, payload: data });
 
-    const msg = data.message;
-    localStorage.setItem("token", JSON.stringify(data.data));
+    const msg = data.message || "Login Successfull!";
+    localStorage.setItem("token", JSON.stringify(data.token));
     toast.success(msg, {
       position: "top-right",
     });

@@ -14,6 +14,8 @@ export const jobReducer = (state = { loading: false }, action) => {
       return { ...state, loading: false, current_job: action.payload };
     case types.GET_SINGLE_JOBS_FAIL:
       return { ...state, loading: false, error: action.payload };
+    case types.SET_CURRENT_JOB_ID:
+      return { ...state, currentId: action.payload };
     default:
       return state;
   }

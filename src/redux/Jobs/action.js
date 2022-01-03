@@ -19,6 +19,11 @@ export const getJobs = () => async (dispatch) => {
         type: types.GET_JOBS_SUCCESS,
         payload: response.data,
       });
+      dispatch({
+        type: types.SET_CURRENT_JOB_ID,
+        payload: response.data.data[0].id,
+      });
+      dispatch(getSingleJobs(response.data.data[0].id));
     }
   } catch (error) {
     const message = error.response
@@ -32,7 +37,10 @@ export const getJobs = () => async (dispatch) => {
 export const getSingleJobs = (jobId) => async (dispatch) => {
   try {
     dispatch({ type: types.GET_SINGLE_JOBS });
-
+    dispatch({
+      type: types.SET_CURRENT_JOB_ID,
+      payload: jobId,
+    });
     const response = await axios.get(`${base}jobs/${jobId}`, {
       headers: {
         "Content-Type": "application/json",

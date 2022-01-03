@@ -85,6 +85,7 @@ export const getUser = () => async (dispatch) => {
     const response = await axios.get(`${base}/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
     });

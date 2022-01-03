@@ -1,5 +1,6 @@
 import * as types from "../types";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const base = "https://api.jobboard.tedbree.com/v1/";
 
@@ -60,5 +61,41 @@ export const getSingleJobs = (jobId) => async (dispatch) => {
       : "Something Went Wrong";
 
     dispatch({ type: types.GET_SINGLE_JOBS_FAIL, payload: message });
+  }
+};
+
+export const jobApply = (jobId, applyData) => async (dispatch) => {
+  try {
+    dispatch({ type: types.JOB_APPLY });
+
+    const conf = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+      },
+    };
+
+    const { data } = await axios.post(
+      `${base}/jobs/${jobId}/apply`,
+      applyData,
+      conf
+    );
+
+    if (data.status === "success") {
+      dispatch({ type: types.JOB_APPLY_SUCCESS, payload: data.data });
+
+      toast.success("Application sucessfull!", {
+        position: "top-right",
+      });
+    }
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : "Application failed";
+    dispatch({ type: types.JOB_APPLY_FAIL, payload: message });
+
+    toast.error(message, {
+      position: "top-right",
+    });
   }
 };

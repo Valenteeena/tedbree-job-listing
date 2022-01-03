@@ -20,3 +20,16 @@ export const jobReducer = (state = { loading: false }, action) => {
       return state;
   }
 };
+
+export const jobApplyReducer = (state = { loading: false }, action) => {
+  switch (action.type) {
+    case types.JOB_APPLY:
+      return { ...state, loading: true };
+    case types.JOB_APPLY_SUCCESS:
+      return { ...state, loading: false, applied: action.payload };
+    case types.JOB_APPLY_FAIL:
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};

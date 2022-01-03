@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { jobReducer } from "./Jobs/reducer";
+import { jobApplyReducer, jobReducer } from "./Jobs/reducer";
 const persistConfig = {
   key: "root",
   storage,
@@ -10,5 +10,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   jobReducer: jobReducer,
+  jobApplyReducer: jobApplyReducer,
 });
 export default persistReducer(persistConfig, rootReducer);

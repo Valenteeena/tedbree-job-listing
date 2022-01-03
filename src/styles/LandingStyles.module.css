@@ -156,6 +156,9 @@
 .ApplyModal form button {
   @apply w-full bg-[#0f4a7b] py-4 float-none text-base font-bold text-white;
 }
+.ApplyModal form button:disabled {
+  @apply bg-slate-300;
+}
 .upload {
   @apply bg-white text-center w-full flex flex-col items-center justify-center py-12 mb-8 font-bold border-[1px] border-[#0f4a7b] text-[#0f4a7b] text-base p-4 rounded-lg;
 }

@@ -32,6 +32,7 @@ const ApplyModal = (props) => {
     };
     console.log(props.job.id, subValues);
     dispatch(jobApply(props.job.id, subValues));
+    props.closeFrm();
   };
   const inputFileRef = React.useRef();
 
@@ -53,7 +54,7 @@ const ApplyModal = (props) => {
           />
           {props.job && props.job.location}
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} action="#">
           <aside>
             <label>First Name</label> <br />
             <input

@@ -27,6 +27,12 @@
 .topHeader nav button {
   @apply text-[#0f4a7b] text-base py-2 px-4 rounded-md bg-[#ffeded] font-black;
 }
+.topHeader nav button a {
+  @apply text-[#0f4a7b] text-base py-2 font-black;
+}
+.topHeader nav button a:hover {
+  @apply no-underline text-[#0f4a7b] font-semibold;
+}
 .search {
   box-shadow: 0px 4px 17px rgba(15, 74, 123, 0.15);
   @apply flex justify-evenly w-5/6 mx-auto rounded-lg bg-white p-4;
@@ -43,8 +49,9 @@
 .search button {
   @apply text-white text-base py-2 px-5 rounded-md bg-[#ea5566] font-black;
 }
+
 .ContentStyle {
-  @apply py-20 px-20 text-xs;
+  @apply py-20 px-20 text-xs bg-[#f9fbfd];
 }
 .topContent {
   @apply flex w-[47%] text-[#3e3e40] justify-between items-center;

@@ -1,0 +1,31 @@
+.LoginContainer {
+  @apply min-h-screen min-w-full bg-no-repeat bg-[url('../assets/heros-page.png')] bg-cover py-6 px-20 bg-[#f9fbfd];
+}
+.LoginContainer main {
+  @apply flex justify-between mt-16;
+}
+.LoginContainer main div {
+  @apply w-1/2 mt-12;
+}
+.LoginContainer main div h1 {
+  @apply text-[50px] w-2/3 text-white font-extrabold leading-snug;
+}
+.LoginContainer main div:last-of-type {
+  @apply w-[40%];
+}
+.LoginContainer main div h2 {
+  @apply text-[32px] font-extrabold mb-8 text-[#0f4a7b];
+}
+
+.LoginContainer main div form aside {
+  @apply mb-10 w-full;
+}
+.LoginContainer main div form aside label {
+  @apply text-[#0f4a7b] text-lg;
+}
+.LoginContainer main div form aside input {
+  @apply w-full border-[1px] border-[#0f4a7b] text-lg p-4 rounded-lg mt-2;
+}
+.LoginContainer main div form button {
+  @apply w-40 rounded-lg bg-[#0f4a7b] py-4 float-none text-base font-bold text-white;
+}

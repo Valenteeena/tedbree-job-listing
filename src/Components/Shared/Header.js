@@ -29,7 +29,9 @@ const Header = () => {
             </Link>
             <Link to="/">Company Review</Link>
             <Link to="/">Find Salaries</Link>
-            <button>Post Job</button>
+            <button>
+              <Link to="/login">Post Job</Link>
+            </button>
           </nav>
         )}
       </div>

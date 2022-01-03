@@ -16,6 +16,12 @@ export const jobReducer = (state = { loading: false }, action) => {
       return { ...state, loading: false, error: action.payload };
     case types.SET_CURRENT_JOB_ID:
       return { ...state, currentId: action.payload };
+    case types.GET_USER_JOBS:
+      return { ...state, loading: true };
+    case types.GET_USER_JOBS_SUCCESS:
+      return { ...state, loading: false, user_jobs: action.payload };
+    case types.GET_USER_JOBS_FAIL:
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }

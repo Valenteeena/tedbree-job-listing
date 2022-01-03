@@ -130,3 +130,32 @@ export const searchJobs = (search) => async (dispatch) => {
     dispatch({ type: types.GET_JOBS_FAIL, payload: message });
   }
 };
+
+export const getUserJobs = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+
+  try {
+    dispatch({ type: types.GET_USER_JOBS });
+
+    const response = await axios.get(`${base}my/jobs`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.data.length !== 0) {
+      dispatch({
+        type: types.GET_USER_JOBS_SUCCESS,
+        payload: response.data,
+      });
+    }
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : "Something Went Wrong";
+
+    dispatch({ type: types.GET_USER_JOBS_FAIL, payload: message });
+  }
+};

@@ -1,7 +1,7 @@
-.AdminStyles {
+.AdminHeader {
   background-position-x: 101%;
   background-position-y: 90%;
-  @apply max-h-80 bg-no-repeat bg-[url('../../public/headerbg.png')] bg-[#0f4a7b] py-8 px-16;
+  @apply max-h-72 bg-no-repeat bg-[url('../../public/headerbg.png')] bg-[#0f4a7b] py-8 px-16;
 }
 .AdminHeader h1 {
   @apply p-10 my-5 tracking-widest font-bold italic text-white text-[42px];
@@ -21,4 +21,40 @@
 }
 .active {
   @apply text-[#ffffff] font-black;
+}
+.adminContent {
+}
+.adminContent button {
+  @apply bg-[#EA5566] w-[10%] font-bold py-3 text-white rounded-md;
+}
+.topContent {
+  @apply flex justify-between px-20 mt-16 items-center;
+}
+.topContent div {
+  box-shadow: 0px 4px 17px rgba(15, 74, 123, 0.15);
+  @apply flex w-[35%] p-2 px-4 items-center rounded-lg;
+}
+.topContent div input {
+  @apply w-[70%] px-2;
+}
+.topContent div input:focus {
+  outline: none;
+}
+.topContent div button {
+  @apply bg-[#EA5566] w-[28%] py-2 text-white rounded-md;
+}
+.dataTable {
+  @apply w-[90%] my-10 mx-auto;
+}
+.dataTable thead {
+  @apply bg-[#0f4a7b] rounded-lg;
+}
+.dataTable thead tr {
+  @apply mb-4;
+}
+.dataTable thead tr th {
+  @apply p-4 text-white;
+}
+.dataTable h1 {
+  @apply text-center mt-5 text-4xl text-[#0f4a7b] font-extrabold;
 }

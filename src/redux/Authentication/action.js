@@ -82,7 +82,7 @@ export const getUser = () => async (dispatch) => {
   try {
     dispatch({ type: types.USER_DETAILS });
 
-    const response = await axios.get(`${base}/user`, {
+    const response = await axios.get(`${base}user`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Access-Control-Allow-Origin": "*",

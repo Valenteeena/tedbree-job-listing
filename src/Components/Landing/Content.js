@@ -13,7 +13,7 @@ const Content = () => {
   const { jobs, current_job, currentId } = jobReducer;
 
   const [sortBy, setSortBy] = useState("latest");
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const closeFrm = (e) => {
     setShow(!show);

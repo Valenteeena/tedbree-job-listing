@@ -99,3 +99,34 @@ export const jobApply = (jobId, applyData) => async (dispatch) => {
     });
   }
 };
+
+export const searchJobs = (search) => async (dispatch) => {
+  try {
+    dispatch({ type: types.GET_JOBS });
+
+    const response = await axios.get(`${base}jobs?q=${search}`, {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+
+    if (response.data.length !== 0) {
+      dispatch({
+        type: types.GET_JOBS_SUCCESS,
+        payload: response.data,
+      });
+      dispatch({
+        type: types.SET_CURRENT_JOB_ID,
+        payload: response.data.data[0].id,
+      });
+      dispatch(getSingleJobs(response.data.data[0].id));
+    }
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : "Something Went Wrong";
+
+    dispatch({ type: types.GET_JOBS_FAIL, payload: message });
+  }
+};

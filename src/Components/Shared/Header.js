@@ -4,10 +4,18 @@ import logo from "../../assets/Logo.png";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { searchJobs } from "../../redux/Jobs/action";
 
 const Header = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [searchT, setSearchT] = useState("");
+  const dispatch = useDispatch();
 
+  const searchResult = (e) => {
+    e.preventDefault();
+    dispatch(searchJobs(searchT));
+  };
   return (
     <section className={styles.HeaderContainer}>
       <div className={styles.topHeader}>
@@ -29,13 +37,18 @@ const Header = () => {
       <div className={styles.search}>
         <div style={{ borderRight: "1px solid #62BECB" }}>
           <FiSearch color="#62BECB" fontSize="22px" />
-          <input type="text" placeholder="Front end Developer" />
+          <input
+            type="text"
+            placeholder="e.g Front end Developer"
+            value={searchT}
+            onChange={(e) => setSearchT(e.target.value)}
+          />
         </div>
         <div style={{ marginLeft: ".5rem" }}>
           <GoLocation color="#62BECB" fontSize="22px" />
           <input type="text" placeholder="Lagos, Nigeria" />
         </div>
-        <button>Search</button>
+        <button onClick={searchResult}>Search</button>
       </div>
     </section>
   );

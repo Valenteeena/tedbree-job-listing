@@ -168,5 +168,34 @@
 .upload label {
   @apply inline-block bg-[#0f4a7b] cursor-pointer py-4 w-48 rounded-md mt-2 float-none text-base font-bold text-white;
 }
-.Footer {
+.FooterStyle {
+  @apply flex justify-evenly bg-[#0f4a7b] py-16 text-white;
+}
+.FooterStyle div p {
+  @apply text-lg tracking-widest mt-4;
+}
+.FooterStyle div img {
+  @apply mt-8;
+}
+.FooterStyle div p span {
+  @apply text-[#5bb4c4] italic;
+}
+.FooterStyle div h4 {
+  @apply text-xl font-bold pb-4;
+}
+.FooterStyle div h3 {
+  @apply text-2xl  pb-4;
+}
+.FooterStyle div ul li {
+  @apply text-lg pb-2;
+}
+.FooterStyle div:last-of-type {
+  @apply text-center;
+}
+
+.FooterStyle aside {
+  @apply flex;
+}
+.icon {
+  @apply text-lg bg-white bg-opacity-30 p-4 mr-3 rounded-full;
 }

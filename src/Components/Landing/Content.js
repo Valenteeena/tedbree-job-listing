@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import SingleJob from "./SingleJob";
 import styles from "../../styles/LandingStyles.module.css";
+import { GoLocation } from "react-icons/go";
 
 const Content = () => {
   const jobReducer = useSelector((state) => state.jobReducer);
-  const { jobs } = jobReducer;
-
+  const { jobs, current_job } = jobReducer;
   const [sortBy, setSortBy] = useState("latest");
-
   const handleChange = (event) => {
     setSortBy(event.target.value);
   };
@@ -43,9 +42,41 @@ const Content = () => {
             ))}
           </div>
           <div className={styles.jobDesc}>
-            <h1 className="text-3xl font-bold underline text-red-600">
-              Hello world!
-            </h1>
+            {current_job && (
+              <>
+                <div>
+                  <h1>{current_job.title}</h1>
+                  <h2 style={{ alignItems: "center", display: "flex" }}>
+                    <GoLocation
+                      color="#62BECB"
+                      fontSize="22px"
+                      style={{ marginRight: ".5rem" }}
+                    />
+                    {current_job.location}
+                  </h2>{" "}
+                  <button>Apply Via Find Job</button>
+                </div>
+                <article>
+                  <p>{current_job.description}</p>
+                  <ul>
+                    <li>
+                      <strong>Company:</strong> {current_job.company}
+                    </li>
+                    <li>
+                      <strong>Job type:</strong> {current_job.type} /{" "}
+                      {current_job.work_condition}
+                    </li>
+                    <li>
+                      <strong>Salary:</strong> &#8358;{" "}
+                      {" " + current_job.salary}
+                    </li>
+                    <li>
+                      <strong>Other benefits:</strong> {current_job.benefits}
+                    </li>
+                  </ul>
+                </article>
+              </>
+            )}
           </div>
         </div>
       )}

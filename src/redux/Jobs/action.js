@@ -43,7 +43,7 @@ export const getSingleJobs = (jobId) => async (dispatch) => {
     if (response.data.length !== 0) {
       dispatch({
         type: types.GET_SINGLE_JOBS_SUCCESS,
-        payload: response.data,
+        payload: response.data.data,
       });
     }
   } catch (error) {

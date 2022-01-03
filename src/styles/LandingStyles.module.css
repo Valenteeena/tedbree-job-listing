@@ -62,22 +62,40 @@
   @apply w-[48%];
 }
 .jobDesc {
-  @apply w-[48%] my-4 p-6 pb-12 rounded-lg;
+  @apply w-[48%] my-4 py-10  rounded-lg;
   box-shadow: 0px 4px 17px rgba(98, 190, 203, 0.15);
   border-radius: 10px;
+}
+.jobDesc div {
+  @apply px-8 border-b-[1px] pb-6 border-red-600;
 }
 .SingleJobDiv {
   box-shadow: 0px 4px 17px rgba(98, 190, 203, 0.15);
   @apply w-full my-4 rounded-md p-6 pb-12;
 }
+.jobDesc h1 {
+  @apply text-2xl text-[#0f4a7b] mb-3 font-bold;
+}
 .SingleJobDiv h1 {
   @apply text-xl text-[#0f4a7b] mb-3 font-bold;
+}
+.jobDesc h2 {
+  @apply text-lg mb-4;
 }
 .SingleJobDiv h2 {
   @apply text-lg;
 }
 .SingleJobDiv p {
   @apply text-sm  py-2;
+}
+.jobDesc article {
+  @apply p-8;
+}
+.jobDesc p {
+  @apply text-base pb-4;
+}
+.jobDesc ul li {
+  @apply text-base pb-2 pl-4;
 }
 .SingleJobDiv button {
   @apply float-right bg-[#ea5566] rounded-md py-2 px-4 text-white;
@@ -92,6 +110,9 @@
 
 .SingleJobDiv:hover button {
   @apply bg-white  text-[#ea5566];
+}
+.jobDesc button {
+  @apply bg-[#0F4A7B] text-white py-3 px-8 rounded-xl text-lg tracking-widest;
 }
 .Footer {
 }

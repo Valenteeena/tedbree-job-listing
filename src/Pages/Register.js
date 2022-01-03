@@ -1,22 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/LoginStyles.module.css";
 import logo from "../assets/Logo.png";
 import hero from "../assets/hero.png";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../redux/Authentication/action";
+import { CircularProgress } from "@mui/material";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const regReducer = useSelector((state) => state.regReducer);
+  const { loading, regDetail } = regReducer;
 
   const regHandler = (e) => {
     e.preventDefault();
-    console.log(email, password, name);
+    // console.log(email, password, name);
     dispatch(register(name, email, password));
   };
+  useEffect(() => {
+    if (regDetail) {
+      navigate("/");
+    }
+  }, [regDetail, navigate]);
+
   return (
     <section className={styles.LoginContainer}>
       <img src={logo} alt="logo" />
@@ -55,7 +66,9 @@ function Register() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </aside>
-            <button>Register</button>
+            <button>
+              {loading ? <CircularProgress size={20} /> : "Register"}
+            </button>
           </form>
           <p className="pt-4 font-bolder">
             Already have an Account?{" "}

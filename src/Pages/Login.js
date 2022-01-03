@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/LoginStyles.module.css";
 import logo from "../assets/Logo.png";
 import hero from "../assets/hero.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/Authentication/action";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const authReducer = useSelector((state) => state.authReducer);
+  const { loading, detail } = authReducer;
+
   const loginandler = (e) => {
     e.preventDefault();
     // console.log(email, password);
     dispatch(login(email, password));
   };
+
+  useEffect(() => {
+    if (detail) {
+      navigate("/login");
+    }
+  }, [detail, navigate]);
+
   return (
     <section className={styles.LoginContainer}>
       <img src={logo} alt="logo" />
@@ -44,7 +57,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </aside>
-            <button>Login</button>
+            <button>
+              {loading ? <CircularProgress size={20} /> : "Login"}
+            </button>
           </form>
           <p className="pt-4 font-bolder">
             No Account?{" "}

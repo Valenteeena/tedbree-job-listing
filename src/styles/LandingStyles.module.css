@@ -69,6 +69,7 @@
 .jobDesc div {
   @apply px-8 border-b-[1px] pb-6 border-red-600;
 }
+.SingleJobDiv_active,
 .SingleJobDiv {
   box-shadow: 0px 4px 17px rgba(98, 190, 203, 0.15);
   @apply w-full my-4 rounded-md p-6 pb-12;
@@ -79,12 +80,17 @@
 .SingleJobDiv h1 {
   @apply text-xl text-[#0f4a7b] mb-3 font-bold;
 }
+.SingleJobDiv_active h1 {
+  @apply text-xl  mb-3 font-bold;
+}
 .jobDesc h2 {
   @apply text-lg mb-4;
 }
+.SingleJobDiv_active h2,
 .SingleJobDiv h2 {
   @apply text-lg;
 }
+.SingleJobDiv_active p,
 .SingleJobDiv p {
   @apply text-sm  py-2;
 }
@@ -97,17 +103,20 @@
 .jobDesc ul li {
   @apply text-base pb-2 pl-4;
 }
+.SingleJobDiv_active button,
 .SingleJobDiv button {
   @apply float-right bg-[#ea5566] rounded-md py-2 px-4 text-white;
 }
 
+.SingleJobDiv_active,
 .SingleJobDiv:hover {
   @apply text-white bg-[#0f4a7b] cursor-pointer;
 }
+.SingleJobDiv_active h1,
 .SingleJobDiv:hover h1 {
   @apply text-white;
 }
-
+.SingleJobDiv_active button,
 .SingleJobDiv:hover button {
   @apply bg-white  text-[#ea5566];
 }

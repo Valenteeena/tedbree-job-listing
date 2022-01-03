@@ -9,7 +9,8 @@ import { GoLocation } from "react-icons/go";
 
 const Content = () => {
   const jobReducer = useSelector((state) => state.jobReducer);
-  const { jobs, current_job } = jobReducer;
+  const { jobs, current_job, currentId } = jobReducer;
+
   const [sortBy, setSortBy] = useState("latest");
   const handleChange = (event) => {
     setSortBy(event.target.value);
@@ -38,7 +39,7 @@ const Content = () => {
         <div className={styles.jobContent}>
           <div className={styles.jobList}>
             {jobs.data.map((jb) => (
-              <SingleJob job={jb} />
+              <SingleJob job={jb} currentId={currentId} />
             ))}
           </div>
           <div className={styles.jobDesc}>

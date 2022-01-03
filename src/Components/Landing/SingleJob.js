@@ -4,12 +4,14 @@ import { useDispatch } from "react-redux";
 import { getSingleJobs } from "../../redux/Jobs/action";
 import styles from "../../styles/LandingStyles.module.css";
 
-const SingleJob = ({ job }) => {
+const SingleJob = ({ job, currentId }) => {
   const dispatch = useDispatch();
 
   return (
     <section
-      className={styles.SingleJobDiv}
+      className={
+        job.id === currentId ? styles.SingleJobDiv_active : styles.SingleJobDiv
+      }
       key={job.id}
       onClick={() => {
         dispatch(getSingleJobs(job.id));

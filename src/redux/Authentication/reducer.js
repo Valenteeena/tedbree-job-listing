@@ -27,3 +27,16 @@ export const regReducer = (state = { loading: false }, action) => {
       return state;
   }
 };
+
+export const userReducer = (state = { loading: false }, action) => {
+  switch (action.type) {
+    case types.USER_DETAILS:
+      return { ...state, loading: true };
+    case types.USER_DETAILS_SUCCESS:
+      return { ...state, loading: false, detail: action.payload };
+    case types.USER_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};

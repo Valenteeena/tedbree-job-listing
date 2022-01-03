@@ -1,0 +1,24 @@
+.AdminStyles {
+  background-position-x: 101%;
+  background-position-y: 90%;
+  @apply max-h-80 bg-no-repeat bg-[url('../../public/headerbg.png')] bg-[#0f4a7b] py-8 px-16;
+}
+.AdminHeader h1 {
+  @apply p-10 my-5 tracking-widest font-bold italic text-white text-[42px];
+}
+.topHeader {
+  @apply flex justify-between items-center;
+}
+.topHeader nav {
+  @apply flex justify-between items-center;
+  width: 5%;
+}
+.topHeader nav a {
+  @apply text-lg no-underline text-[#ffffff99];
+}
+.topHeader nav a:hover {
+  @apply text-white font-black;
+}
+.active {
+  @apply text-[#ffffff] font-black;
+}

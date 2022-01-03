@@ -76,3 +76,30 @@ export const register =
       });
     }
   };
+
+export const getUser = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  try {
+    dispatch({ type: types.USER_DETAILS });
+
+    const response = await axios.get(`${base}/user`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.data) {
+      dispatch({
+        type: types.USER_DETAILS_SUCCESS,
+        payload: response.data,
+      });
+    }
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : "Something Went Wrong";
+
+    dispatch({ type: types.USER_DETAILS_FAIL, payload: message });
+  }
+};

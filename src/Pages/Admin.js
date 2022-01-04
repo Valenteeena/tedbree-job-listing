@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
@@ -65,7 +66,7 @@ const Admin = () => {
               {user_jobs.data.map((dt, index) => (
                 <tr key={index}>
                   <td>{dt.title}</td>
-                  <td>{dt.created_at}</td>
+                  <td>{moment(dt.created_at).format("d/MM/yyyy")}</td>
                   <td>{0}</td>
                   <td>
                     <button>Edit</button>

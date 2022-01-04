@@ -2,6 +2,7 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
+import AdminFooter from "../Components/Admin/AdminFooter";
 import AdminHeader from "../Components/Admin/AdminHeader";
 import JobCreationForm from "../Components/Admin/JobCreationForm";
 import { getUser } from "../redux/Authentication/action";
@@ -84,6 +85,7 @@ const Admin = () => {
           )}
         </table>
       </section>
+      <AdminFooter />
       <JobCreationForm show={show} closeFrm={closeFrm} />
     </main>
   );

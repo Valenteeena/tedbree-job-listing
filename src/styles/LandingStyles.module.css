@@ -175,16 +175,22 @@
 .upload label {
   @apply inline-block bg-[#0f4a7b] cursor-pointer py-4 w-48 rounded-md mt-2 float-none text-base font-bold text-white;
 }
-.FooterStyle {
+.FooterStyle,
+.aFooterStyle {
   @apply flex justify-evenly bg-[#0f4a7b] py-16 text-white;
 }
-.FooterStyle div p {
+.aFooterStyle {
+  @apply py-10;
+}
+.FooterStyle div p,
+.aFooterStyle div p {
   @apply text-lg tracking-widest mt-4;
 }
 .FooterStyle div img {
   @apply mt-8;
 }
-.FooterStyle div p span {
+.FooterStyle div p span,
+.aFooterStyle div p span {
   @apply text-[#5bb4c4] italic;
 }
 .FooterStyle div h4 {
@@ -200,7 +206,8 @@
   @apply text-center;
 }
 
-.FooterStyle aside {
+.FooterStyle aside,
+.aFooterStyle aside {
   @apply flex;
 }
 .icon {
